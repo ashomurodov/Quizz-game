@@ -162,7 +162,7 @@ newGame.addEventListener("click", () => {
   correctQuestions = 0;
   BONUS = 200;
   bonus.textContent = `your bonus: 0`;
-  time.textContent = "00:10";
+  time.textContent = "time: 00:10";
   level.textContent = "level: 1/10";
   overLay.classList.add("none");
   renderGame();
