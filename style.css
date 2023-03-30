@@ -106,3 +106,43 @@ button:active {
   background-color: crimson;
   color: #fff;
 }
+
+/* message style */
+
+.messages,
+.result {
+  display: flex;
+  width: 600px;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: beige;
+  border-radius: 10px;
+  border: 4px solid #020202;
+  border-top: 2px solid #020202;
+  border-left: 2px solid #020202;
+  font-size: 20px;
+}
+
+.result {
+  background-color: antiquewhite;
+}
+
+.overlay button {
+  background-color: antiquewhite;
+}
+
+.overlay, .startGameOverlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(240, 255, 255, 0.868);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.none{
+  display: none;
+}

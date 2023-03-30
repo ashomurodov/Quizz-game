@@ -8,7 +8,23 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="messages">
+      <p id="time">time: 00:10</p>
+      <p id="bonusBytime">level bonus: 200</p>
+      <p id="bonus">your bonus: 0</p>
+      <p id="level">level: 1/10</p>
+    </div>
     <div class="quiz_container"></div>
+    <div class="overlay none">
+      <div class="result">
+        <p class="correctAnswers">correct answers: 0/10</p>
+        <p class="resultBonus">earned bonus: 400</p>
+      </div>
+      <button id="new_game">new game</button>
+    </div>
+    <div class="startGameOverlay none">
+      <button id="start_game">start game</button>
+    </div>
     <script src="./modules/utils.js"></script>
     <script type="module" src="./next.js"></script>
   </body>
