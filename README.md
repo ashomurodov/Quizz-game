@@ -10,3 +10,6 @@
 -     * when click uncorrect answer this button adds (FAILED) class and correct visebled correct answer;
 -     * when click button call setTimeOut function and this function waits 3 second and render new questions
 - 
+
+
+link for try -> :) https://demo-quizz-game.netlify.app/
