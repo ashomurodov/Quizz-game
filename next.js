@@ -7,13 +7,15 @@ let operator,
   correctIndex,
   interval,
   hasAnswer,
-  permissionForClick;
+  permissionForClick,
+  NUMBER_OF_LEVEL,
+  BONUS,
+  earnedBonus,
+  correctQuestions,
+  seconds;
+
 let NUMBER_OF_QUESTIONS = 10;
-let NUMBER_OF_LEVEL = 1;
-let BONUS = 200;
-let earnedBonus = 0;
-let correctQuestions = 0;
-let seconds = 10;
+
 let highScore = +localStorage.getItem("quizz:highScore") || 0;
 let playingTime = +localStorage.getItem("quizz:playingTime") || 0;
 
@@ -38,6 +40,16 @@ startGame.addEventListener("click", () => {
   startGameoverLay.classList.add("none");
   renderGame();
 });
+
+function init() {
+  NUMBER_OF_LEVEL = 1;
+  BONUS = 200;
+  earnedBonus = 0;
+  correctQuestions = 0;
+  seconds = 10;
+}
+
+init();
 
 function HighScore(newHighScore) {
   if (highScore < newHighScore) {
@@ -173,11 +185,7 @@ function resultOfGame() {
 }
 
 newGame.addEventListener("click", () => {
-  seconds = 10;
-  NUMBER_OF_LEVEL = 1;
-  earnedBonus = 0;
-  correctQuestions = 0;
-  BONUS = 200;
+  init();
   bonus.textContent = `your bonus: 0`;
   time.textContent = "time: 00:10";
   level.textContent = "level: 1/10";
