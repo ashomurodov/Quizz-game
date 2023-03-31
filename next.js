@@ -15,6 +15,7 @@ let earnedBonus = 0;
 let correctQuestions = 0;
 let seconds = 10;
 let highScore = +localStorage.getItem("quizz:highScore") || 0;
+let playingTime = +localStorage.getItem("quizz:playingTime") || 0;
 
 const newGame = document.getElementById("new_game");
 const overLay = document.querySelector(".overlay");
@@ -27,6 +28,11 @@ const time = document.getElementById("time");
 const bonus_in_time = document.getElementById("bonusBytime");
 const bonus = document.getElementById("bonus");
 const level = document.getElementById("level");
+const highScoreStart = document.querySelector(".hightScore");
+const PlayTime = document.querySelector(".playing_time");
+
+highScoreStart.textContent = `high score: ${highScore}`;
+PlayTime.textContent = `You play this game: ${playingTime} times`;
 
 startGame.addEventListener("click", () => {
   startGameoverLay.classList.add("none");
@@ -38,6 +44,9 @@ function HighScore(newHighScore) {
     highScore = newHighScore;
     localStorage.setItem("quizz:highScore", newHighScore);
   }
+  playingTime++;
+  let newPlayTime = playingTime;
+  localStorage.setItem("quizz:playingTime", newPlayTime);
 }
 
 function getTime() {
