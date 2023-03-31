@@ -1,7 +1,7 @@
 const quizContainer = document.querySelector(".quiz_container");
 let questionEl = [];
 let answerEl = [];
-let operators = ["+", "-", "*"];
+let operators = ["+", "-", "*", "/"];
 let operator,
   correctAnswer,
   correctIndex,
@@ -14,6 +14,7 @@ let BONUS = 200;
 let earnedBonus = 0;
 let correctQuestions = 0;
 let seconds = 10;
+let highScore = +localStorage.getItem("quizz:highScore") || 0;
 
 const newGame = document.getElementById("new_game");
 const overLay = document.querySelector(".overlay");
@@ -32,6 +33,13 @@ startGame.addEventListener("click", () => {
   renderGame();
 });
 
+function HighScore(newHighScore) {
+  if (highScore < newHighScore) {
+    highScore = newHighScore;
+    localStorage.setItem("quizz:highScore", newHighScore);
+  }
+}
+
 function getTime() {
   let currentecond = seconds;
   let currentBonus = BONUS;
@@ -47,12 +55,8 @@ function getTime() {
   bonus_in_time.textContent = `level bonus: ${currentBonus}`;
 }
 
-function timeGO() {
-  interval = setInterval(getTime, 1000);
-}
-
 function renderGame() {
-  timeGO();
+  interval = setInterval(getTime, 1000);
 
   questionEl = [];
   answerEl = [];
@@ -147,10 +151,14 @@ function nextLevel() {
 }
 
 function resultOfGame() {
+  HighScore(earnedBonus);
+
   overLay.classList.remove("none");
   const RESULT_ANSWERS = document.querySelector(".correctAnswers");
   const RESULT_BONUS = document.querySelector(".resultBonus");
+  const HIGHSCORE = document.querySelector(".higthBonus");
 
+  HIGHSCORE.textContent = `high score: ${highScore}`;
   RESULT_ANSWERS.textContent = `correct answers: ${correctQuestions}/10`;
   RESULT_BONUS.textContent = `earned bonus: ${earnedBonus}`;
 }

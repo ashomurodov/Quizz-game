@@ -3,6 +3,7 @@ let result;
 const sum = (a, b) => a + b;
 const difference = (a, b) => a - b;
 const multiply = (a, b) => a * b;
+// const dvide = (a, b) => (a / b).toFixed(2);
 
 // function for random number generation
 
@@ -18,6 +19,9 @@ function calcAnswer(firstNumber, operator, secondNumber) {
       break;
     case "-":
       result = difference(+firstNumber, +secondNumber);
+      break;
+    case "/":
+      result = dvide(+firstNumber, +secondNumber);
       break;
     default:
       result = multiply(+firstNumber, +secondNumber);
